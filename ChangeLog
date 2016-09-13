@@ -1,0 +1,107 @@
+2016-07-12 Andreas Becker - websedit AG <extensions@websedit.de>
+	
+	* Bugfix ga.js: Added commata before _setDomainName
+
+2016-07-12 Andreas Becker - websedit AG <extensions@websedit.de>
+	
+	* Added _setDomainName and legacyCookieDomain to tracking
+	* Support for TYPO3 CMS 8
+
+2015-11-12 Andreas Becker - websedit AG <extensions@websedit.de>
+
+	* Support for TYPO3 CMS 7 LTS
+
+2015-10-22 Andreas Becker - websedit AG <extensions@websedit.de>
+
+	* Integration of user opt-out / disable tracking by cookie functionality
+	* Recreated documentation with reStructuredText
+
+2014-11-13 Andreas Becker - websedit AG <extensions@websedit.de>
+
+	* Added code to support Demographics and Interests reports within Universal Analytics
+	
+2014-05-19 Andreas Becker - websedit AG <extensions@websedit.de>
+
+	* Now supporting TYPO3 up to 6.2.99. Thanks to Andreas Fragner
+
+2014-05-16 Andreas Becker - websedit AG <extensions@websedit.de>
+
+	* Bugfix: The filetracking code on async tracking did not include the basefolder (e.g. fileadmin). Thanks to Andreas Fragner
+  
+2013-10-30 Andreas Becker - websedit AG <extensions@websedit.de>
+
+	* Changed "recordOutboundLink()" to work even when GA is blocked by browserplugins. Thanks to Sebastian During
+  
+2013-07-04 Andreas Becker - websedit AG <extensions@websedit.de>
+
+	* Added UAdualtag.account, to dualtag the website with different account-numbers
+
+2013-05-28 Andreas Becker - websedit AG <extensions@websedit.de>
+
+	* Extended Universal Analytics code (dual tag website with universal and asynchronous tracking code)
+
+2013-04-08 Andreas Becker - websedit AG <extensions@websedit.de>
+
+	* Added the Universal Analytics code
+	
+2013-03-20 Andreas Becker - websedit AG <extensions@websedit.de>
+
+	* Added code to Support Display Advertising
+	* Update of Mobile Tracking Code
+	
+2013-02-21 Andreas Becker - websedit AG <extensions@websedit.de>
+
+	* Added adjusted Bounce Rate
+	
+2013-02-04 Andreas Becker - websedit AG <extensions@websedit.de>
+
+	* Bugfix "recordOutboundLink is not defined" thanks to Thomas Maurer
+	* set dependencies in em_conf (to prevent to be outdated in new TER)
+	
+2012-12-04 Andreas Becker - websedit AG <extensions@websedit.de>
+
+	* Update of manual, marked deprecated Google Analytics functions
+
+2012-11-30 Andreas Becker - websedit AG <extensions@websedit.de>
+
+	* Added Enhanced Link Attribution
+	* Analytics account number is converted automatically for the defined type (UA- or MO-)
+
+2012-09-03 Andreas Becker - websedit AG <extensions@websedit.de>
+
+	* Replaced old Funktion t3lib_div::GPvar
+
+2012-06-04 Andreas Becker - websedit AG <extensions@websedit.de>
+
+	* External links kann now be tracked (protocols to track can be defined)
+	
+2011-11-24 Andreas Becker - websedit AG <extensions@websedit.de>
+
+	* Extended file tracking, you can define which type of files should be tracked
+	* Changed the manual due to the bad online rendering
+
+2011-11-04 Andreas Becker - websedit AG <extensions@websedit.de>
+
+	* Now stable version (due to the feedback)
+	* Added support for pageload tracking
+	* Added support for file tracking
+
+2010-12-28 Andreas Becker - websedit AG <extensions@websedit.de>
+
+	* Added support for the _option-Tags like '_setDomainName' (not available within mobile tracking)
+	* Integration of mobile tracking code (http://code.google.com/intl/en-EN/mobile/analytics/docs/web/)
+
+2010-11-24 Andreas Becker - websedit AG <extensions@websedit.de>
+
+	* Set async-mode as default
+	* Changed description
+	* Extended README.txt
+
+2010-11-08 Andreas Becker - websedit AG <extensions@websedit.de>
+
+	* Correction in Warning message, if wrong Account Number is set
+	* Updated manual
+
+2010-10-22 Andreas Becker - websedit AG <extensions@websedit.de>
+
+	* Initial release
