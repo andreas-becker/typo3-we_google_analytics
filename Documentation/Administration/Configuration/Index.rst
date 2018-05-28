@@ -51,7 +51,7 @@ All configuration parameters for this extension should be in your TypoScript tem
  		 Defines your Google Analytics account number. This parameter needs to be set for the extension to work. If not set, you will see an error-message as html-comment in your pages html source.
 
    :Default:
- 		 
+
 
    :Trackingtype:
    		 all
@@ -126,7 +126,7 @@ All configuration parameters for this extension should be in your TypoScript tem
  		 Comma separated list of file extension which will be tracked. If this parameter isn't set, all files within the “trackfiles.path”-directory that have a file extension between one and three charakters will be tracked
 
    :Default:
- 		 
+
 
    :Trackingtype:
    		 ga.js, analytics.js
@@ -141,11 +141,11 @@ All configuration parameters for this extension should be in your TypoScript tem
  		 You can add most of the options starting with an underscore like _setDomainName.
 
    :Default:
- 		 
+
 
    :Trackingtype:
    		 ga.js
-   		 
+
  - :Property:
  		 :typoscript:`trackexternal`
 
@@ -160,7 +160,7 @@ All configuration parameters for this extension should be in your TypoScript tem
 
    :Trackingtype:
    		 ga.js, analytics.js
-   		 
+
  - :Property:
  		 :typoscript:`trackexternal.types`
 
@@ -292,7 +292,7 @@ All configuration parameters for this extension should be in your TypoScript tem
  		 Add your Universal Analytics Account Number, if you want to tag your website with a different number for “Universal Analytics”. Only used if “UAdualtag” is 1 and “type” = universal
 
    :Default:
- 		 
+
 
    :Trackingtype:
    		 analytics.js
@@ -304,7 +304,7 @@ All configuration parameters for this extension should be in your TypoScript tem
  		 Boolean
 
    :Description:
- 		 Set 1 to disable tracking by cookie (CookieLaw). Check `Google Developers, Disabling Tracking`_ for more information.
+ 		 Set 1 to remove disabling of tracking by cookie (CookieLaw). Check `Google Developers, Disabling Tracking`_ for more information.
 
    :Default:
  		 0
@@ -337,7 +337,7 @@ All configuration parameters for this extension should be in your TypoScript tem
        Sets the domain name for the GATC cookies. Google Analytics provides three modes to this method: ("auto" | "none" | [domain]).
 
    :Default:
-       
+
 
    :Trackingtype:
           ga,js, analytics.js
@@ -353,7 +353,22 @@ All configuration parameters for this extension should be in your TypoScript tem
        Typically it is a (sub-)domain like 'alpha.websedit.de' (without the quotes).
 
    :Default:
-       
+
 
    :Trackingtype:
           analytics.js
+
+ - :Property:
+       :typoscript:`dnt`
+
+   :Data type:
+       Boolean
+
+   :Description:
+       Set 1 to respect the Do Not Track configuration of the browser.
+
+   :Default:
+       0
+
+   :Trackingtype:
+          ga,js, analytics.js

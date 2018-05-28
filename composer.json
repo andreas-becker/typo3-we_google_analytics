@@ -1,0 +1,17 @@
+{
+    "name": "andreas-becker/typo3-we_google_analytics",
+    "type": "typo3-cms-extension",
+    "description": "This Plugin adds Google Analytics to your site automagically. All types of Google Analytics supported (urchin.js, mobile, ga.js and analytics.js). Easy use of Googles Cookie Law (Googles Opt-Out function via cookie) implementation. Now also added Do Not Track support.",
+    "homepage": "https://typo3.org/extensions/repository/view/we_google_analytics",
+    "authors": [
+        {
+          "name": "Andreas Becker - websedit AG",
+          "email": "extensions@websedit.de"
+        }
+    ],
+    "license": ["GPL-2.0+"],
+    "version": "2.2.0",
+    "require": {
+            "typo3/cms-core": ">=6.2.0"
+    }
+}

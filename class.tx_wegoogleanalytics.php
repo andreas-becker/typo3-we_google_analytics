@@ -46,7 +46,7 @@ class tx_wegoogleanalytics {
 
 	/**
 	 * Insert Google Analytics Code before the output of the page
-	 * 
+	 *
 	 * @param str &$content Pagecontent
 	 * @param str $conf TyposcriptConfig
 	 * @return Void
@@ -67,7 +67,7 @@ class tx_wegoogleanalytics {
 	 *
 	 * @param str $con Pagecontent
 	 * @return str Pagecontent
-	 * 
+	 *
 	 */
 	protected function process( $con ) {
 			// validate given account number
@@ -121,7 +121,7 @@ class tx_wegoogleanalytics {
 
 	/**
 	 * Google Analytics Mobile Tracking Code (extended)
-	 * 
+	 *
 	 * @return str TrackerUrl
 	 *
 	 */
@@ -147,10 +147,10 @@ class tx_wegoogleanalytics {
 
 	/**
 	 * Google Analytics Mobile Tracking Code
-	 * 
+	 *
 	 * @param str $con Pagecontent
 	 * @return str Pagecontent
-	 * 
+	 *
 	 */
 	protected function insertMobileGaCode($con) {
 		$gaMobileAfterContent = '<!-- Google Analytics Mobile Tracking Code by we_google_analytics -->' . chr(10) .
@@ -161,10 +161,10 @@ class tx_wegoogleanalytics {
 
 	/**
 	 * Google Analytics sync (urchin.js)
-	 * 
+	 *
 	 * @param str $con Pagecontent
 	 * @return str Pagecontent
-	 * 
+	 *
 	 */
 	protected function insertSyncGaCode($con) {
 
@@ -352,7 +352,7 @@ class tx_wegoogleanalytics {
 		if ($this->conf['UAdualtag'] == 1) {
 			// Include optout only once
 		} else {
-			if ($this->conf['optout'] == 1) {
+			if ($this->conf['optout'] == 0) {
 				// Disable tracking if the opt-out cookie exists.
 				$gaOptout .= "var disableStr = 'ga-disable-" . str_replace('MO', 'UA', $this->conf['account']) . "';
 if (document.cookie.indexOf(disableStr + '=true') > -1) {
@@ -368,6 +368,18 @@ if (document.cookie.indexOf(disableStr + '=true') > -1) {
 			}
 		}
 		/**
+		 * Disable Tracking if Do Not Track is set
+		 * https://www.eff.org/issues/do-not-track
+		 *
+		 */
+		if ($this->conf['dnt'] == 1) {
+			// Disable tracking if set in the configurations of the used browser
+			$gaOptout .= "if(navigator.doNotTrack == 1) {
+	document.cookie = 'ga-disable-" . str_replace('MO', 'UA', $this->conf['account']) . "' + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+	window['ga-disable-" . str_replace('MO', 'UA', $this->conf['account']) . "'] = true;
+}" . chr(10);
+		}
+		/**
 		 * Tracking Multiple Domains
 		 * https://developers.google.com/analytics/devguides/collection/gajs/gaTrackingSite
 		 *
@@ -379,7 +391,7 @@ if (document.cookie.indexOf(disableStr + '=true') > -1) {
 		/**
 		 * Remove _gaq. and _gat. if set
 		 * also remove configs without underscore (e.g. account)
-		 * 
+		 *
 		 */
 		$gaConf = array();
 		foreach ($this->conf as $param => $val) {
@@ -440,7 +452,7 @@ if (document.cookie.indexOf(disableStr + '=true') > -1) {
 	' . $gaSrc . "
 	var s = d.getElementsByTagName(t)[0]; s.parentNode.insertBefore(g, s);
 })(document, 'script');" . chr(10);
-		
+
 		$gaAsync .= '/* ]]> */
 	</script>';
 
@@ -460,13 +472,13 @@ if (document.cookie.indexOf(disableStr + '=true') > -1) {
 
 	/**
 	 * Google Universal Analytics (analytics.js)
-	 * 
+	 *
 	 * @param str $con Pagecontent
 	 * @return str Pagecontent
 	 *
 	 */
 	protected function insertUniversalGaCode($con) {
-		
+
 		$trackfiles = '';
 		$trackfiletypes = '';
 		/* If filetracking is enabled, clean the userinput */
@@ -521,14 +533,13 @@ if (document.cookie.indexOf(disableStr + '=true') > -1) {
 		} elseif($this->conf['legacyCookieDomain']) {
 			$setdomainname = "'legacyCookieDomain': '" . $this->conf['legacyCookieDomain'] . "'";
 		}
-
 		/**
 		 * Disable Tracking by cookie
 		 * https://developers.google.com/analytics/devguides/collection/gajs/?hl=de#disable
 		 *
 		 */
 		$gaOptout = '';
-		if ($this->conf['optout'] == 1) {
+		if ($this->conf['optout'] == 0) {
 			// Disable tracking if the opt-out cookie exists.
 			$gaOptout .= "var disableStr = 'ga-disable-" . str_replace('MO', 'UA', $this->conf['account']) . "';
 if (document.cookie.indexOf(disableStr + '=true') > -1) {
@@ -542,6 +553,18 @@ if (document.cookie.indexOf(disableStr + '=true') > -1) {
 }" . chr(10);
 			}
 		}
+		/**
+		 * Disable Tracking if Do Not Track is set
+		 * https://www.eff.org/issues/do-not-track
+		 *
+		 */
+		if ($this->conf['dnt'] == 1) {
+			// Disable tracking if set in the configurations of the used browser
+			$gaOptout .= "if(navigator.doNotTrack == 1) {
+	document.cookie = 'ga-disable-" . str_replace('MO', 'UA', $this->conf['account']) . "' + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+	window['ga-disable-" . str_replace('MO', 'UA', $this->conf['account']) . "'] = true;
+}" . chr(10);
+		}
 		// Create initial options object
 		$gaUniversalOptions = '';
 		if($setdomainname != '') {
@@ -550,7 +573,6 @@ if (document.cookie.indexOf(disableStr + '=true') > -1) {
 			$gaUniversalOptions .= $setdomainname; // add _setDomainname
 			$gaUniversalOptions .= '}';
 		}
-
 		// Build Goolge Analytics script tag
 		$gaUniversal = '<script type="text/javascript">' . chr(10);
 		$gaUniversal .= $gaOptout;
@@ -611,7 +633,7 @@ if (document.cookie.indexOf(disableStr + '=true') > -1) {
 	 * @param str $gaCode   Google Analytics Tracker Code
 	 * @param str $position Position of the Tracker Code in the html document
 	 * @return str          Pagecontent
-	 * 
+	 *
 	 */
 	protected function insertTrackerCode($con, $gaCode, $position) {
 		switch($position) {

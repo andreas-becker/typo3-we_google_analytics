@@ -12,10 +12,10 @@
 
 $EM_CONF[$_EXTKEY] = array(
 	'title' => 'Google Analytics',
-	'description' => 'This Plugin will add the Google Analytics Code to your site automagically. All types of Google Analytics supported (urchin.js, mobile, ga.js and analytics.js). Easy use of Googles Cookie Law (Googles Opt-Out function via cookie) implementation.',
+	'description' => 'This Plugin will add the Google Analytics Code to your site automagically. All types of Google Analytics supported (urchin.js, mobile, ga.js and analytics.js). Easy use of Googles Cookie Law (Googles Opt-Out function via cookie) implementation. Now also added Do Not Track support.',
 	'category' => 'fe',
 	'shy' => 0,
-	'version' => '2.1.1',
+	'version' => '2.2.0',
 	'dependencies' => '',
 	'conflicts' => '',
 	'priority' => '',

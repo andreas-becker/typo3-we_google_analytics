@@ -30,7 +30,7 @@ Google Analytics
 		google analytics, google, analytics, anonymizedIp, opt-out, cookielaw, setDomainName, enhanced link, link attribution, tracking, forEditors, forAdmins, forBeginners, forIntermediates
 
 	:Copyright:
-		2000-2016
+		2000-2018
 
 	:Author:
 		Andreas Becker - websedit AG
