@@ -340,7 +340,7 @@ All configuration parameters for this extension should be in your TypoScript tem
 
 
    :Trackingtype:
-          ga,js, analytics.js
+          ga.js, analytics.js
 
  - :Property:
        :typoscript:`legacyCookieDomain`
@@ -371,4 +371,4 @@ All configuration parameters for this extension should be in your TypoScript tem
        0
 
    :Trackingtype:
-          ga,js, analytics.js
+          ga.js, analytics.js
